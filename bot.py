@@ -18,7 +18,7 @@ import requests
 FEEDS = {
     "STAT": "https://www.statnews.com/feed/",
     "Fierce Biotech": "https://www.fiercebiotech.com/rss/xml",
-    "Endpoints": "https://endpoints.news/feed/",
+    "Endpoints": "https://endpts.com/feed/",
 }
 
 # Leave empty [] to post everything. Otherwise only items mentioning
