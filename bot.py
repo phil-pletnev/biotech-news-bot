@@ -35,7 +35,7 @@ TAGS = {
     "#FDA": r"\b(FDA|approval|approves|CRL|PDUFA)\b",
 }
 
-MAX_POSTS_PER_RUN = 15      # safety cap so a glitch can't flood the channel
+MAX_POSTS_PER_RUN = 45      # safety cap so a glitch can't flood the channel
 SEEN_FILE = Path("seen.json")
 SEEN_LIMIT = 3000           # how many past links to remember
 # -------------------------------------------
