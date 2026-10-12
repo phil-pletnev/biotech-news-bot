@@ -2,8 +2,8 @@ name: Biotech news to Telegram
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # every 15 minutes (UTC)
-  workflow_dispatch:          # adds a "Run workflow" button for manual tests
+    - cron: "17 */2 * * *"   # every 2 hours at :17 (UTC)
+  workflow_dispatch:          # keeps the "Run workflow" button
 
 permissions:
   contents: write             # lets the job save seen.json back to the repo
