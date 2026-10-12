@@ -19,6 +19,7 @@ FEEDS = {
     "STAT": "https://www.statnews.com/feed/",
     "Fierce Biotech": "https://www.fiercebiotech.com/rss/xml",
     "Endpoints": "https://endpoints.news/feed/",
+    "BioPharma Dive": "https://www.biopharmadive.com/feeds/news/",
 }
 
 # Leave empty [] to post everything. Otherwise only items mentioning
@@ -27,15 +28,40 @@ KEYWORDS = []
 
 # Optional hashtags: if the text matches the pattern, the tag is added.
 TAGS = {
-    "#RNA": r"\b(siRNA|RNAi|antisense|ASO|oligonucleotide|mRNA)\b",
-    "#GeneTherapy": r"\b(gene therapy|AAV|gene editing|CRISPR|base edit)",
-    "#Deals": r"\b(acquir|acquisition|merger|licens|buyout|takeover)",
-    "#Financing": r"\b(raises|Series [A-D]|IPO|financing|funding round)",
-    "#Clinical": r"\b(Phase [123I]+|trial|readout|topline)",
-    "#FDA": r"\b(FDA|approval|approves|CRL|PDUFA)\b",
+    # Modalities
+    "#RNA": r"\b(siRNA|RNAi|antisense|ASOs?|oligonucleotides?|mRNA|GalNAc)\b",
+    "#GeneTherapy": r"\b(gene therap\w*|AAV|capsids?)\b",
+    "#GeneEditing": r"\b(CRISPR|gene[- ]edit\w*|base[- ]edit\w*|prime[- ]edit\w*)",
+    "#CellTherapy": r"\b(CAR[- ]?T|CAR[- ]NK|cell therap\w*|TCR|iPSC)\b",
+    "#ADC": r"\b(ADCs?|antibody[- ]drug conjugates?)\b",
+    "#Bispecific": r"\b(bispecific\w*|T[- ]cell engagers?)\b",
+    "#Radiopharma": r"\b(radiopharm\w*|radioligand\w*|actinium|lutetium)",
+    "#Vaccines": r"\bvaccin\w*",
+    # Therapeutic areas
+    "#Oncology": r"\b(cancer\w*|tumou?rs?|oncolog\w*|lymphoma|leuk(a)?emia|myeloma|carcinoma)",
+    "#Obesity": r"\b(obesity|GLP-1|semaglutide|tirzepatide|incretin\w*|amylin)",
+    "#Cardio": r"\b(cardiovascular|cardio\w*|heart failure|Lp\(a\)|cholesterol|LDL|hypertension)",
+    "#Neuro": r"\b(Alzheimer\w*|Parkinson\w*|ALS|Huntington\w*|epilep\w*|neuro\w*)",
+    "#Immunology": r"\b(autoimmun\w*|lupus|psoria\w*|atopic dermatitis|IBD|Crohn\w*|colitis|inflammat\w*)",
+    "#Liver": r"\b(liver|MASH|NASH|hepat\w*)",
+    "#Kidney": r"\b(kidney|renal|nephr\w*|IgAN)\b",
+    "#RareDisease": r"\b(rare disease\w*|orphan drug\w*|ultra-rare)",
+    "#Infectious": r"\b(antibiotic\w*|antiviral\w*|antimicrobial\w*|HIV|HBV|COVID\w*|influenza)",
+    # Business
+    "#Deals": r"\b(acqui\w*|merger\w*|licens\w*|buyout|takeover|partnership|collaboration)",
+    "#Financing": r"\b(raises|raised|Series [A-F]|financing|funding|private placement)\b",
+    "#IPO": r"\b(IPOs?|initial public offering|goes public|go public)\b",
+    "#Layoffs": r"\b(layoffs?|lays off|job cuts|restructur\w*|workforce reduction)",
+    # Clinical & regulatory
+    "#Clinical": r"\b(Phase (1|2|3|I{1,3})\w*|trials?|readouts?|topline)\b",
+    "#FDA": r"\b(FDA|PDUFA|CRL|complete response letter|BLA|NDA)\b",
+    "#Approval": r"\b(approv\w*)",
+    "#EMA": r"\b(EMA|CHMP|European Commission)\b",
+    "#Policy": r"\b(tariffs?|Medicare|Medicaid|drug pricing|MFN|most[- ]favou?red[- ]nation|CMS|IRA)\b",
+    "#China": r"\b(China|Chinese)\b",
 }
 
-MAX_POSTS_PER_RUN = 45      # safety cap so a glitch can't flood the channel
+MAX_POSTS_PER_RUN = 50      # safety cap so a glitch can't flood the channel
 SEEN_FILE = Path("seen.json")
 SEEN_LIMIT = 3000           # how many past links to remember
 # -------------------------------------------
